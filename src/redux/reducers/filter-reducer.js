@@ -1,4 +1,4 @@
-import { SET_STOP_BOX } from '../actions';
+import { SET_FILTER } from '../actions';
 
 const initialState = {
   all: {
@@ -23,9 +23,9 @@ const initialState = {
   },
 };
 
-export const stopBoxReducer = (state = initialState, action) => {
+export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_STOP_BOX: {
+    case SET_FILTER: {
       let newState = JSON.parse(JSON.stringify(state));
       let buttons = Object.entries(newState);
       const clickedBtn = buttons.find((item) => item.includes(action.payload));

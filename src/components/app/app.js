@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Transfers from '../transfers';
 import Filter from '../filter';
+import SortTabs from '../sort-tabs';
 import CardList from '../card-list';
 
 import classes from './app.module.scss';
@@ -14,13 +14,13 @@ function App() {
         <img className={classes['header--logo']} src={logo} alt="Aviasales logo" />
       </header>
       <main className={classes.main}>
-        <Transfers />
+        <Filter />
         <section className={classes.core}>
-          <Filter />
+          <SortTabs />
           <div>
             <CardList />
           </div>
-          <button type="button" className={classes['add-btn']}>
+          <button type="button" className={classes['show-more-btn']}>
             Показать еще 5 билетов!
           </button>
         </section>

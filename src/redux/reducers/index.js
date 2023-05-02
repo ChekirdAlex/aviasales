@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { stopBoxReducer } from './stop-box-reducer';
+import { filterReducer } from './filter-reducer';
+import { ticketsReducer } from './tickets-reducer';
 
-const rootReducer = combineReducers({ stopBox: stopBoxReducer });
+const rootReducer = combineReducers({ filter: filterReducer, tickets: ticketsReducer });
 
 export default rootReducer;
