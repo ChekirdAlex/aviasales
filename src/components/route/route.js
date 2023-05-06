@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { add, format, parseISO } from 'date-fns';
 
@@ -51,5 +52,21 @@ function Route({ info }) {
     </div>
   );
 }
+
+Route.defaultProps = {
+  origin: '',
+  destination: '',
+  date: '',
+  duration: 0,
+  stops: [],
+};
+
+Route.propTypes = {
+  origin: PropTypes.string,
+  destination: PropTypes.string,
+  date: PropTypes.string,
+  duration: PropTypes.number,
+  stops: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default Route;

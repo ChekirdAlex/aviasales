@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Route from '../route';
 
@@ -22,5 +23,44 @@ function Card({ ticketInfo }) {
     </div>
   );
 }
+
+Card.defaultProps = {
+  ticketInfo: {
+    carrier: '',
+    price: 0,
+    segments: [
+      {
+        origin: '',
+        destination: '',
+        date: '',
+        duration: 0,
+        stops: [],
+      },
+      {
+        origin: '',
+        destination: '',
+        date: '',
+        duration: 0,
+        stops: [],
+      },
+    ],
+  },
+};
+
+Card.propTypes = {
+  ticketInfo: PropTypes.shape({
+    carrier: PropTypes.string,
+    price: PropTypes.number,
+    segments: PropTypes.arrayOf(
+      PropTypes.shape({
+        origin: PropTypes.string,
+        destination: PropTypes.string,
+        date: PropTypes.string,
+        duration: PropTypes.number,
+        stops: PropTypes.arrayOf(PropTypes.string),
+      })
+    ),
+  }),
+};
 
 export default Card;
