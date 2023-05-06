@@ -1,13 +1,21 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { setVisibleTickets } from '../../redux/actions';
 import Filter from '../filter';
 import SortTabs from '../sort-tabs';
 import CardList from '../card-list';
+import Loader from '../loader';
+import Information from '../information';
 
 import classes from './app.module.scss';
 import logo from './img/logo.png';
 
 function App() {
+  const dispatch = useDispatch();
+  const { loading, visibleTickets, sortedQuantity, tickets } = useSelector((state) => state);
+  const areAllVisible = visibleTickets === tickets;
+
   return (
     <div className={classes.container}>
       <header className={classes.header}>
@@ -17,12 +25,16 @@ function App() {
         <Filter />
         <section className={classes.core}>
           <SortTabs />
+          {loading ? <Loader /> : null}
+          {!sortedQuantity && !loading ? <Information /> : null}
           <div>
             <CardList />
           </div>
-          <button type="button" className={classes['show-more-btn']}>
-            Показать еще 5 билетов!
-          </button>
+          {!areAllVisible && sortedQuantity.length > 0 ? (
+            <button type="button" className={classes['show-more-btn']} onClick={() => dispatch(setVisibleTickets())}>
+              Показать еще 5 билетов!
+            </button>
+          ) : null}
         </section>
       </main>
     </div>

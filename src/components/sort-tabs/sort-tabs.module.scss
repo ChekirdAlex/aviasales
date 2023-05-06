@@ -13,16 +13,10 @@
     color: #4A4A4A;
     &:hover {
       cursor: pointer;
-      background-color: #F1FCFF;
     }
-    &:focus {
-      background-color: #F1FCFF;
-      outline: none;
+    &__checked {
+      background: #2196F3;
+      color: #FFFFFF;
     }
   }
-}
-
-.checked {
-  background: #2196F3;
-  color: #FFFFFF;
 }

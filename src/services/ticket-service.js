@@ -1,6 +1,7 @@
 export default class TicketService {
   _baseUrl = new URL('https://aviasales-test-api.kata.academy');
   _searchId = null;
+
   getSearchId = async () => {
     const urlSearchId = new URL('/search', this._baseUrl);
     const res = await fetch(urlSearchId);

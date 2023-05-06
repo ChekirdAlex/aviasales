@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { add, format, parseISO } from 'date-fns';
 
 import classes from './route.module.scss';
@@ -32,7 +33,7 @@ function Route({ info }) {
   return (
     <div className={classes.route}>
       <div className={classes['route--flight']}>
-        <div className={`${classes.text} ${classes.title}`}>
+        <div className={cn(classes.text, classes.title)}>
           {origin} – {destination}
         </div>
         <div className={classes.text}>
@@ -40,11 +41,11 @@ function Route({ info }) {
         </div>
       </div>
       <div className={classes['route--time']}>
-        <div className={`${classes.text} ${classes.title}`}>В пути</div>
+        <div className={cn(classes.text, classes.title)}>В пути</div>
         <div className={classes.text}>{getFormatTime(duration)}</div>
       </div>
       <div className={classes['route--stops']}>
-        <div className={`${classes.text} ${classes.title}`}>{stopsTitle}</div>
+        <div className={cn(classes.text, classes.title)}>{stopsTitle}</div>
         <div className={classes.text}>{stopsInfo}</div>
       </div>
     </div>
@@ -52,18 +53,3 @@ function Route({ info }) {
 }
 
 export default Route;
-
-// <div className={classes.route}>
-//   <div className={classes['route--flight']}>
-//     <div className={`${classes.text} ${classes.title}`}>MOW – HKT</div>
-//     <div className={classes.text}>10:45 – 08:00</div>
-//   </div>
-//   <div className={classes['route--time']}>
-//     <div className={`${classes.text} ${classes.title}`}>В пути</div>
-//     <div className={classes.text}>21ч 15м</div>
-//   </div>
-//   <div className={classes['route--stops']}>
-//     <div className={`${classes.text} ${classes.title}`}>2 пересадки</div>
-//     <div className={classes.text}>HKG, JNB</div>
-//   </div>
-// </div>

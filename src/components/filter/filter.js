@@ -7,8 +7,8 @@ import classes from './filter.module.scss';
 
 function Filter() {
   const dispatch = useDispatch();
-  const stopBox = useSelector((state) => state.filter);
-  const { all, nonStop, oneStop, twoStops, threeStops } = stopBox;
+  const filters = useSelector((state) => state.filters);
+  const [all, nonStop, oneStop, twoStops, threeStops] = filters;
 
   return (
     <form className={classes.filter}>
@@ -18,9 +18,7 @@ function Filter() {
           onChange={() => dispatch(setFilter(all.id))}
           className={classes['filter--input']}
           type="checkbox"
-          name="all"
           id="all"
-          value="all"
           checked={all.checked}
         />
         <div className={classes['filter--box']} />
@@ -32,9 +30,7 @@ function Filter() {
           onChange={() => dispatch(setFilter(nonStop.id))}
           className={classes['filter--input']}
           type="checkbox"
-          name="nonStop"
           id="nonStop"
-          value="zero"
           checked={nonStop.checked}
         />
         <div className={classes['filter--box']} />
@@ -46,9 +42,7 @@ function Filter() {
           onChange={() => dispatch(setFilter(oneStop.id))}
           className={classes['filter--input']}
           type="checkbox"
-          name="one"
           id="oneStop"
-          value="one"
           checked={oneStop.checked}
         />
         <div className={classes['filter--box']} />
@@ -60,9 +54,7 @@ function Filter() {
           onChange={() => dispatch(setFilter(twoStops.id))}
           className={classes['filter--input']}
           type="checkbox"
-          name="two"
           id="twoStops"
-          value="two"
           checked={twoStops.checked}
         />
         <div className={classes['filter--box']} />
@@ -74,9 +66,7 @@ function Filter() {
           onChange={() => dispatch(setFilter(threeStops.id))}
           className={classes['filter--input']}
           type="checkbox"
-          name="three"
           id="threeStops"
-          value="three"
           checked={threeStops.checked}
         />
         <div className={classes['filter--box']} />

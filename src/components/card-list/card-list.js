@@ -1,22 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Card from '../card';
-import { getTickets } from '../../redux/actions';
+import { getTickets, setSortedQuantity } from '../../redux/actions';
+import { filterTickets, sortTickets } from '../../helpers';
 
 import classes from './card-list.module.scss';
 
 function CardList() {
   const dispatch = useDispatch();
-  const tickets = useSelector((state) => state.tickets);
+  const { tickets, visibleTickets, filters, tabs } = useSelector((state) => state);
+
+  const sortedTickets = useMemo(() => filterTickets(sortTickets(tickets, tabs), filters), [tickets, filters, tabs]);
 
   useEffect(() => {
     dispatch(getTickets());
-  }, []);
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(setSortedQuantity(sortedTickets.length));
+  }, [dispatch, sortedTickets, filters, tabs]);
 
   return (
     <ul className={classes['card-list']}>
-      {tickets.slice(0, 5).map((ticketInfo) => (
+      {sortedTickets.slice(0, visibleTickets).map((ticketInfo) => (
         <li key={`${ticketInfo.price}${ticketInfo.carrier}${ticketInfo.segments[0].stops}`}>
           <Card ticketInfo={ticketInfo} />
         </li>
