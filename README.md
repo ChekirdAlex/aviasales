@@ -1,4 +1,4 @@
-### vercel deployment https://aviasales-m7ubsimy5-chekirdalex.vercel.app/
+### vercel deployment https://aviasales-kjk48nuq3-chekirdalex.vercel.app/
 
 ---
 # Getting Started with Create React App
