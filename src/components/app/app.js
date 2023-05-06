@@ -13,8 +13,8 @@ import logo from './img/logo.png';
 
 function App() {
   const dispatch = useDispatch();
-  const { loading, visibleTickets, sortedQuantity, tickets } = useSelector((state) => state);
-  const areAllVisible = visibleTickets === tickets;
+  const { loading, visibleTickets, sortedQuantity } = useSelector((state) => state);
+  const areAllVisible = visibleTickets === sortedQuantity;
 
   return (
     <div className={classes.container}>
@@ -30,7 +30,7 @@ function App() {
           <div>
             <CardList />
           </div>
-          {!areAllVisible && sortedQuantity.length > 0 ? (
+          {!areAllVisible && !!sortedQuantity ? (
             <button type="button" className={classes['show-more-btn']} onClick={() => dispatch(setVisibleTickets())}>
               Показать еще 5 билетов!
             </button>
