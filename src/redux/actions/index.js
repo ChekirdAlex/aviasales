@@ -1,4 +1,4 @@
-import TicketService from '../../services/ticket-service';
+import { TicketService } from '../../services/ticket-service';
 
 export const SET_FILTER = 'SET_FILTERS';
 export const GET_TICKETS = 'GET_TICKETS';

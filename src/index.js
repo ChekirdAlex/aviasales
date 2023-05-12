@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import './index.scss';
 import App from './components/app';
 import { store } from './redux/store';
-import TicketService from './services/ticket-service';
+import { TicketService } from './services/ticket-service';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

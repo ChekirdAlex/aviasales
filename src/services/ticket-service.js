@@ -1,4 +1,4 @@
-export default class TicketService {
+class TicketService {
   _baseUrl = new URL('https://aviasales-test-api.kata.academy');
   _searchId = null;
 
@@ -22,3 +22,5 @@ export default class TicketService {
     return res.json();
   };
 }
+
+export { TicketService };
