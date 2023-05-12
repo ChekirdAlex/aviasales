@@ -5,7 +5,7 @@ import { setFilter } from '../../redux/actions';
 
 import classes from './filter.module.scss';
 
-function Filter() {
+export const Filter = () => {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
   const [all, nonStop, oneStop, twoStops, threeStops] = filters;
@@ -75,6 +75,4 @@ function Filter() {
       </label>
     </form>
   );
-}
-
-export default Filter;
+};

@@ -6,7 +6,7 @@ import { setSortTab } from '../../redux/actions';
 
 import classes from './sort-tabs.module.scss';
 
-function SortTabs() {
+export const SortTabs = () => {
   const dispatch = useDispatch();
   const tabs = useSelector((state) => state.tabs);
   const [byPrice, bySpeed] = tabs;
@@ -28,6 +28,4 @@ function SortTabs() {
       </button>
     </div>
   );
-}
-
-export default SortTabs;
+};

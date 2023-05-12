@@ -5,7 +5,7 @@ import { add, format, parseISO } from 'date-fns';
 
 import classes from './route.module.scss';
 
-function Route({ info }) {
+export const Route = ({ info }) => {
   const { origin, destination, date, duration, stops } = info;
   let stopsTitle;
   switch (stops.length) {
@@ -51,7 +51,7 @@ function Route({ info }) {
       </div>
     </div>
   );
-}
+};
 
 Route.defaultProps = {
   origin: '',
@@ -68,5 +68,3 @@ Route.propTypes = {
   duration: PropTypes.number,
   stops: PropTypes.arrayOf(PropTypes.string),
 };
-
-export default Route;

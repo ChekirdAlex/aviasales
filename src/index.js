@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import './index.scss';
-import App from './components/app';
+import { App } from './components/app';
 import { store } from './redux/store';
 import { TicketService } from './services/ticket-service';
 

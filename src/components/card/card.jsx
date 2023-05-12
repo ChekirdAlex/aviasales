@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Route from '../route';
+import { Route } from '../route';
 
 import classes from './card.module.scss';
 
-function Card({ ticketInfo }) {
+export const Card = ({ ticketInfo }) => {
   const { price, segments } = ticketInfo;
 
   const getPrice = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -22,7 +22,7 @@ function Card({ ticketInfo }) {
       <Route info={segments[1]} />
     </div>
   );
-}
+};
 
 Card.defaultProps = {
   ticketInfo: {
@@ -62,5 +62,3 @@ Card.propTypes = {
     ),
   }),
 };
-
-export default Card;

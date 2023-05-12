@@ -2,16 +2,16 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setVisibleTickets } from '../../redux/actions';
-import Filter from '../filter';
-import SortTabs from '../sort-tabs';
-import CardList from '../card-list';
-import Loader from '../loader';
-import Information from '../information';
+import { Filter } from '../filter';
+import { SortTabs } from '../sort-tabs';
+import { CardList } from '../card-list';
+import { Loader } from '../loader';
+import { Information } from '../information';
 
 import classes from './app.module.scss';
 import logo from './img/logo.png';
 
-function App() {
+export const App = () => {
   const dispatch = useDispatch();
   const { loading, visibleTickets, sortedQuantity } = useSelector((state) => state);
   const areAllVisible = visibleTickets === sortedQuantity;
@@ -39,6 +39,4 @@ function App() {
       </main>
     </div>
   );
-}
-
-export default App;
+};

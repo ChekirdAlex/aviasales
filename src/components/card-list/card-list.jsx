@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Card from '../card';
+import { Card } from '../card';
 import { getTickets, setSortedQuantity } from '../../redux/actions';
 import { filterTickets, sortTickets } from '../../helpers';
 
 import classes from './card-list.module.scss';
 
-function CardList() {
+export const CardList = () => {
   const dispatch = useDispatch();
   const { tickets, visibleTickets, filters, tabs } = useSelector((state) => state);
 
@@ -30,6 +30,4 @@ function CardList() {
       ))}
     </ul>
   );
-}
-
-export default CardList;
+};

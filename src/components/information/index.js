@@ -1,3 +1,3 @@
-import Information from './information';
+import { Information } from './information';
 
-export default Information;
+export { Information };
